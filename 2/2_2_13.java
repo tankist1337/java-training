@@ -9,7 +9,7 @@ import java.util.List;
 class Exercise_2_2_13 {
     public static void main(String[] args) {
         final MatrixSorter sorter = new MatrixSorterImpl();
-        final ConsoleMatrixPrinter printer = new ConsoleMatrixPrinter();
+        final MatrixPrinter printer = new MatrixPrinter.ConsoleMatrixPrinter();
 
         final List<List<Integer>> matrix = new ArrayList<List<Integer>>() {
             {
@@ -31,21 +31,6 @@ class Exercise_2_2_13 {
         sorter.sortColumnsDecreasing(matrix);
         printer.print(matrix);
     }
-}
-
-interface MatrixPrinter {
-    public <T> void print(List<List<T>> matrix);
-}
-
-class ConsoleMatrixPrinter implements MatrixPrinter {
-
-    @Override
-    public <T> void print(List<List<T>> matrix) {
-        for (List<T> row : matrix) {
-            System.out.println(row.toString());
-        }
-    }
-
 }
 
 interface MatrixSorter {
